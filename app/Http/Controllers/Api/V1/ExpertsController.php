@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Expert;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +15,7 @@ class ExpertsController extends Controller
      */
     public function index()
     {
-        //
+        return Expert::all();
     }
 
     /**
@@ -35,7 +36,10 @@ class ExpertsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $expert = Expert::create($request->all());
+
+        return $expert ;
+
     }
 
     /**
@@ -46,7 +50,7 @@ class ExpertsController extends Controller
      */
     public function show($id)
     {
-        //
+        return Expert::findOrFail($id);
     }
 
     /**
@@ -69,7 +73,11 @@ class ExpertsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $expert = Expert::findOrFail($id);
+        $expert->update($request->all());
+
+        return $expert ;
+
     }
 
     /**
@@ -80,6 +88,10 @@ class ExpertsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $expert = Expert::findOrFail($id);
+
+        $expert->delete();
+
+        return '' ;
     }
 }
