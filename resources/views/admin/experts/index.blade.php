@@ -8,10 +8,12 @@
                     <div class="panel-heading">Эксперты</div>
 
                     <div class="panel-body">
-                        Скоро...
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <router-view name="expertsIndex"</router-view>
+    <router-view></router-view>
 @endsection
