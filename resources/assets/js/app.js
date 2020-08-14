@@ -8,6 +8,8 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 import VueRouter from 'vue-router';
+import router from './router';
+import App from './components/App';
 
 window.Vue.use(VueRouter);
 
@@ -28,4 +30,9 @@ const routes = [
 
 const router = new VueRouter({ routes });
 
-const app = new Vue({ router }).$mount('#app');
+const app = new Vue({
+
+   el : '#app',
+    render : h => h(App),
+
+});
